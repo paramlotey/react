@@ -1,92 +1,30 @@
-import { useState } from "react";
-import "./App.css";
-function App() {
-  // let a = 10;
+import React from "react";
+import Practice from "./Components/Practice";
+import Card from "./Components/Card";
 
-  // console.log("hello world");
+const app = () => {
 
-  // hooks
-  // console.log(`Value of a is ${a}`);
-
-  let [a, setA] = useState(10);
-
-  let [name, setName] = useState("PARAM");
-
-  let [color1,setColor1]=useState("black")
-  let [color2,setColor2]=useState("black")
-
-  let [email,setEmail]=useState("")
-  let [password,setPassword]=useState("")
-
-  let [user,setUser]= useState({
-    email:"",
-    password:""
-  })
-
-
-  const Changecolor = ()=>{
-    setColor1(`rgb(${Math.round(Math.random()*256)},${Math.round(Math.random()*256)},${Math.round(Math.random()*256)})`)
-    console.log(color1);
-    // setColor2()
-    setColor1(`rgb(${Math.round(Math.random()*256)},${Math.round(Math.random()*256)},${Math.round(Math.random()*256)})`)
-  }
-
-
-  const Add = () => {
-    if (a < 15) {
-      setA(a + 1);
-    }
-
-    console.log("ADD", a);
-  };
-  
-  function Change() {
-    setName("John");
-  }
+  let imgarray = [
+    "https://images.unsplash.com/photo-1710237103624-77e1c5b612a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8",
+    "https://images.unsplash.com/photo-1710104434504-0261d06fa832?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8" ,
+    "https://images.unsplash.com/photo-1709828593321-48973262f23e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8",
+    "https://images.unsplash.com/photo-1706883376540-b21e5559fc45?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHx8"
+  ]
 
   return (
-    <>
-      <h1 className="first text-center" style={{ backgroundColor: "black" }}>
-        Hello{" "}
-      </h1>
-      <h1>World</h1>
-      <p>lorem</p>
-      <h1 onClick={Change}>{name}</h1>
-      <h1>{a}</h1>
-      <button className="btn btn-primary" onClick={Add}>
-        Add
-      </button>
-      <button className="btn btn-danger" onClick={()=>setA(a-1)}>
-        Subtract
-      </button>
-
-      <div className="div1" style={{backgroundColor:color1}}></div>
-      <br></br>
-      <div className="div2" style={{backgroundColor:color1}}></div>
-
-      <button className="btn btn-warning" onClick={Changecolor}>Change Color</button>
-
-    <form className="mb-5">
-      <label htmlFor='email'>Email Address:</label><br />
-      <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} />
-    {email}
-      <br />
-
-      <label htmlFor="password">Password:</label> <br />
-      <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
-    </form>
-
-    <form className="mt-5">
-      <label htmlFor='email'>Email Address:</label><br />
-      <input type="email" value={user.email} onChange={(e)=>setUser({...user,email:e.target.value})} />
-      <br />
-
-      <label htmlFor="password">Password:</label> <br />
-      <input type="password" value={user.password} onChange={(e)=>setUser({...user,password:e.target.value})}/>
-    </form>
-
-    </>
+    <div className="d-flex ">
+      {/* <Practice/> */}
+      <Card title="Card Title 1" img ={imgarray[0]}></Card>
+      {/* 1st card */}
+      <Card  age={1} boolean={true} array={[1,2,"hello"]} obj={{name:"param"}} img ={imgarray[1]}></Card>
+      {/* 2nd card */}
+      <Card title="Title of card 3"img ={imgarray[2]} ></Card>
+      {/* 3rd Card */}
+      <Card img ={imgarray[3]}></Card>
+      {/* 4th card */}
+      <Card/>
+    </div>
   );
-}
+};
 
-export default App;
+export default app;
