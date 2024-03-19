@@ -35,10 +35,10 @@ const Products = () => {
             <ClockLoader color="#36d7b7" />
         </div>
       ) : (
-        <>
+        <div className="d-flex justify-content-between flex-wrap">
           {prd.map((item) => {
             return (
-              <div key={item.id}>
+              <div key={item.id} >
                 <div className="card" style={{ width: "18rem" }}>
                   <img
                     src={item.thumbnail}
@@ -52,14 +52,14 @@ const Products = () => {
                       Buy for ${item.price}
                     </a>
                     <a href="#" className="btn btn-secondary">
-                      {item.id}
+                      Product ID :- {item.id}
                     </a>
                   </div>
                 </div>
               </div>
             );
           })}
-        </>
+        </div>
       )}
     </>
   );
